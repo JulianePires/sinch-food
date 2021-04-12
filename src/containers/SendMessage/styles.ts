@@ -25,12 +25,16 @@ export const Container = styled.section`
     height: 6rem;
 
     padding: 1rem;
+
+    @media (min-width: 1080px) {
+      height: 4rem;
+    }
   }
 `;
 
 export const Controllers = styled.section`
   width: 100%;
-  margin-top: 2rem;
+  margin-top: 1rem;
   padding: 0 1.5rem;
 
   display: flex;
@@ -38,7 +42,7 @@ export const Controllers = styled.section`
   align-items: center;
 
   button {
-    width: auto;
+    width: 7rem;
     padding: 0.5rem 1rem;
 
     background: transparent;

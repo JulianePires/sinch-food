@@ -1,6 +1,10 @@
 import { createGlobalStyle } from "styled-components";
 
-export const GlobalStyle = createGlobalStyle`
+interface ChangeTheme {
+  theme: "light" | "dark";
+}
+
+export const GlobalStyle = createGlobalStyle<ChangeTheme>`
 :root{
   --sucess: #93FF6D;
   --error: #940909;
@@ -12,7 +16,7 @@ export const GlobalStyle = createGlobalStyle`
   --onDark: #F2F2F2;
   --yellow: #FFBE3C;
   --navyBlue: #0A273D;
-  --blue: #007171;
+  --blue: #007171;  
 }
 
 * {
@@ -22,6 +26,7 @@ export const GlobalStyle = createGlobalStyle`
   }
   
   html{
+   
     
     @media (max-width: 1080px) {
       font-size: 93.75%; //15px
@@ -33,12 +38,12 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
+    height: 100vh;
     background: var(--primaryLight);
     
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-    
-    height: 100vh;
+  
   }
   
   body, input, textarea, button {

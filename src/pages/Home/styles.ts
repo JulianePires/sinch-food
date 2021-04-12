@@ -6,4 +6,8 @@ export const Container = styled.div`
   }
 `;
 
-export const Main = styled.main``;
+export const Main = styled.main`
+  @media (min-width: 1080px) {
+    min-width: 50rem;
+  }
+`;
