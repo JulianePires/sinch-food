@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 export const Message = styled.button`
-  width: 7.5rem;
-  padding: 0.2rem;
+  width: auto;
+  padding: 0.5rem;
+  margin: 0.5rem;
 
   background: transparent;
   border: 1px solid var(--navyBlue);
@@ -12,6 +13,11 @@ export const Message = styled.button`
   &:hover {
     color: var(--blue);
     border: 1px solid var(--blue);
+  }
+
+  &:focus {
+    background: #c4c4c4;
+    font-weight: 600;
   }
 
   @media (min-width: 720px) {

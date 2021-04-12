@@ -1,13 +1,18 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { Link } from "react-router-dom";
 import { FoodButton } from "../../components/FoodButton";
 import { MessageButton } from "../../components/MessageButton";
 import { Container, Controllers } from "./styles";
 
 export function SendMessage() {
-  const [food, setFood] = useState("comida");
+  const [food, setFood] = useState("");
   const [message, setMessage] = useState("");
+  const [content, setContent] = useState("");
+
+  function handleSendMessage(event: FormEvent) {
+    event.preventDefault();
+  }
 
   return (
     <>
@@ -19,7 +24,7 @@ export function SendMessage() {
           <MessageButton
             onClick={() => {
               setMessage(
-                `Olá, você tem um cupom disponível de R$10 na compra de ${food}`
+                `Olá, você tem um cupom disponível de R$10 na compra de `
               );
             }}
             value="R$10"
@@ -28,7 +33,7 @@ export function SendMessage() {
           <MessageButton
             onClick={() => {
               setMessage(
-                `Olá, você tem um cupom disponível de R$20 na compra de ${food}`
+                `Olá, você tem um cupom disponível de R$20 na compra de `
               );
             }}
             value="R$20"
@@ -39,6 +44,7 @@ export function SendMessage() {
               setMessage(
                 "Restaurante novo na área! Venha já conferir em nosso app!"
               );
+              setFood("");
             }}
             type="restaurante"
           />
@@ -73,13 +79,20 @@ export function SendMessage() {
         </section>
 
         <h2>Mensagem</h2>
-        <textarea value={message} />
+        <textarea
+          value={message + food}
+          onChange={(event) => {
+            setContent(event.target.value);
+          }}
+        />
       </Container>
       <Controllers>
         <button>
           <Link to="/">Voltar</Link>
         </button>
-        <button>Enviar</button>
+        <button type="submit" onClick={handleSendMessage}>
+          Enviar
+        </button>
       </Controllers>
     </>
   );

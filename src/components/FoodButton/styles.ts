@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 export const Food = styled.button`
-  width: auto;
-  padding: 0.5rem 1rem;
+  width: 6rem;
+  padding: 0.5rem 0.5rem;
+  margin: 0.5rem;
 
   background: transparent;
   border: 1px solid var(--navyBlue);
@@ -12,5 +13,10 @@ export const Food = styled.button`
   &:hover {
     color: var(--blue);
     border: 1px solid var(--blue);
+  }
+
+  &:focus-within {
+    background: #c4c4c4;
+    font-weight: 600;
   }
 `;

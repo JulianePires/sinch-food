@@ -5,6 +5,7 @@ export const Container = styled.section`
   padding: 1rem 1.5rem;
 
   h1 {
+    font-size: 1.4rem;
     font-weight: 400;
   }
 
@@ -17,6 +18,7 @@ export const Container = styled.section`
     margin-top: 1rem;
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
   }
 
   textarea {
