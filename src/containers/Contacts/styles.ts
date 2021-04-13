@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Container = styled.section`
   width: 100%;
   padding: 1rem;
+  transition: all 0.2s;
 
   h1 {
     font-weight: 400;
@@ -13,15 +14,30 @@ export const Container = styled.section`
 export const ContactsTable = styled.table`
   width: 100%;
   height: 30rem;
+  padding: 0.5rem;
+
   margin-top: 2rem;
 
-  thead tr {
-    display: grid;
-    grid-template-columns: 1fr 2fr 2fr;
+  overflow: auto;
+  display: grid;
+
+  thead {
+    margin-bottom: 0.5rem;
+
+    tr {
+      display: grid;
+      grid-template-columns: 1fr 2fr 2fr;
+
+      td {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
   }
 
   @media (min-width: 1080px) {
-    height: 21.2rem;
+    height: 22rem;
   }
 `;
 

@@ -4,6 +4,8 @@ export const Container = styled.section`
   width: 100%;
   padding: 1rem;
 
+  transition: all 0.2s;
+
   h1 {
     font-weight: 400;
     height: 2rem;

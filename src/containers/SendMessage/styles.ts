@@ -4,6 +4,8 @@ export const Container = styled.section`
   width: 100%;
   padding: 1rem 1.5rem;
 
+  transition: all 0.2s;
+
   h1 {
     font-size: 1.4rem;
     font-weight: 400;
@@ -15,7 +17,9 @@ export const Container = styled.section`
   }
 
   section {
+    width: 100%;
     margin-top: 1rem;
+
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
@@ -27,8 +31,13 @@ export const Container = styled.section`
     height: 6rem;
 
     padding: 1rem;
+  }
+  @media (min-width: 1080px) {
+    section {
+      justify-content: space-between;
+    }
 
-    @media (min-width: 1080px) {
+    textarea {
       height: 4rem;
     }
   }

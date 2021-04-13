@@ -7,10 +7,9 @@ import { Container, Controllers } from "./styles";
 
 export function SendMessage() {
   const [food, setFood] = useState("");
-  const [message, setMessage] = useState("");
-  const [content, setContent] = useState("");
+  const [placeholder, setPlaceholder] = useState("");
 
-  function handleSendMessage(event: FormEvent) {
+  function handleSetMessage(event: FormEvent) {
     event.preventDefault();
   }
 
@@ -23,25 +22,27 @@ export function SendMessage() {
         <section>
           <MessageButton
             onClick={() => {
-              setMessage(
+              setPlaceholder(
                 `Olá, você tem um cupom disponível de R$10 na compra de `
               );
+              food === "" && alert("Você deve selecionar uma comida!");
             }}
             value="R$10"
             type="cupom"
           />
           <MessageButton
             onClick={() => {
-              setMessage(
+              setPlaceholder(
                 `Olá, você tem um cupom disponível de R$20 na compra de `
               );
+              food === "" && alert("Você deve selecionar uma comida!");
             }}
             value="R$20"
             type="cupom"
           />
           <MessageButton
             onClick={() => {
-              setMessage(
+              setPlaceholder(
                 "Restaurante novo na área! Venha já conferir em nosso app!"
               );
               setFood("");
@@ -79,18 +80,13 @@ export function SendMessage() {
         </section>
 
         <h2>Mensagem</h2>
-        <textarea
-          value={message + food}
-          onChange={(event) => {
-            setContent(event.target.value);
-          }}
-        />
+        <textarea value={`${placeholder}${food}`} required />
       </Container>
       <Controllers>
         <button>
           <Link to="/">Voltar</Link>
         </button>
-        <button type="submit" onClick={handleSendMessage}>
+        <button type="submit" onClick={handleSetMessage}>
           Enviar
         </button>
       </Controllers>
