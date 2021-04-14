@@ -1,5 +1,6 @@
-import { createStore, Store } from "redux";
+import { createStore, Store, applyMiddleware } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
+import createSagaMiddleware from "redux-saga";
 
 import { MessageState } from "./ducks/messages/types";
 import { SendState } from "./ducks/sends/types";
@@ -13,9 +14,13 @@ export interface ApplicationState {
   theme: ThemeState;
 }
 
+const sagaMiddleware = createSagaMiddleware();
+
+const middlewares = [sagaMiddleware];
+
 const store: Store<ApplicationState> = createStore(
   rootReducer,
-  composeWithDevTools()
+  composeWithDevTools(applyMiddleware(...middlewares))
 );
 
 export default store;

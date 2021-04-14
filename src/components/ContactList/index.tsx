@@ -43,7 +43,7 @@ export function ContactList(props: Contact) {
     <Container key={props.id}>
       <td>
         <input
-          onClick={handleSelectContact}
+          onChange={handleSelectContact}
           checked={selected}
           type="checkbox"
           name="selectUser"
