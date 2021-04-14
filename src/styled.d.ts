@@ -4,6 +4,7 @@ interface IPalette {
   contrastText: string;
   details: string;
   hover: string;
+  hoverBackground: string;
 }
 declare module "styled-components" {
   export interface DefaultTheme {

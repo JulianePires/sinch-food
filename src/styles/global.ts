@@ -1,22 +1,16 @@
 import { createGlobalStyle } from "styled-components";
 
-interface ChangeTheme {
-  theme: "light" | "dark";
-}
-
-export const GlobalStyle = createGlobalStyle<ChangeTheme>`
+export const GlobalStyle = createGlobalStyle`
 :root{
   --sucess: #93FF6D;
   --error: #940909;
   --info: #11709E;
   --danger: #FF9F37;
-  --primaryLight: #EEEEEE;
-  --primaryDark: #212121;
-  --onLight: #272727;
-  --onDark: #F2F2F2;
-  --yellow: #FFBE3C;
-  --navyBlue: #0A273D;
-  --blue: #007171;  
+  --main: ${(props) => props.theme.palette.primary.main};
+  --contrastText: ${(props) => props.theme.palette.primary.contrastText};
+  --details: ${(props) => props.theme.palette.primary.details};
+  --hover: ${(props) => props.theme.palette.primary.hover};  
+  --hoverBackground: ${(props) => props.theme.palette.primary.hoverBackground}; 
 }
 
 * {
@@ -39,8 +33,8 @@ export const GlobalStyle = createGlobalStyle<ChangeTheme>`
 
   body {
     height: 100vh;
-    background: var(--primaryLight);
-    
+    background: var(--main);
+    color: var(--contrastText);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   
@@ -86,7 +80,7 @@ export const GlobalStyle = createGlobalStyle<ChangeTheme>`
   .react-modal-content {
     width: 100%;
     max-width: 576px;
-    background: var(--background);
+    background: var(--main);
     padding: 3rem;
     position: relative;
     border-radius: 0.25rem;

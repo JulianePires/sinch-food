@@ -15,7 +15,7 @@ export const SideNav = styled.nav<SideNavProps>`
   left: ${(props) => (props.isOpen ? "0" : "-60%")};
   z-index: 100;
 
-  background: var(--primaryLight);
+  background: var(--main);
 
   display: flex;
   flex-direction: column;
@@ -33,7 +33,7 @@ export const SideNav = styled.nav<SideNavProps>`
     border: none;
 
     font-size: 1.2rem;
-    color: var(--navyBlue);
+    color: var(--details);
     font-weight: 600;
   }
 
@@ -48,7 +48,7 @@ export const SideNav = styled.nav<SideNavProps>`
     transition: color 0.2s;
 
     &:hover {
-      color: var(--blue);
+      color: var(--hover);
     }
   }
 

@@ -57,13 +57,13 @@ export const Controllers = styled.section`
     padding: 0.5rem 1rem;
 
     background: transparent;
-    border: 1px solid var(--navyBlue);
+    border: 1px solid var(--details);
 
     font-size: 1rem;
 
     &:hover {
-      color: var(--blue);
-      border: 1px solid var(--blue);
+      color: var(--hover);
+      border: 1px solid var(--hover);
     }
   }
 `;

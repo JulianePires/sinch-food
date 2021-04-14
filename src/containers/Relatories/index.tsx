@@ -13,7 +13,9 @@ export function Relatories() {
             <th>Mensagem</th>
           </tr>
         </thead>
-        <tbody></tbody>
+        <tbody>
+
+        </tbody>
       </ContactsTable>
     </Container>
   );

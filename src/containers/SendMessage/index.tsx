@@ -1,16 +1,35 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { FormEvent, useState } from "react";
+import { FormEvent, useCallback, useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { FoodButton } from "../../components/FoodButton";
 import { MessageButton } from "../../components/MessageButton";
+import { setMessage } from "../../store/ducks/messages/actions";
+import { Message } from "../../store/ducks/messages/types";
 import { Container, Controllers } from "./styles";
 
 export function SendMessage() {
   const [food, setFood] = useState("");
+  const [template, setTemplate] = useState("");
   const [placeholder, setPlaceholder] = useState("");
+  const dispatch = useDispatch();
+
+  const sendMessage = useCallback(
+    (message: Message) => {
+      dispatch(setMessage(message));
+    },
+    [dispatch]
+  );
 
   function handleSetMessage(event: FormEvent) {
     event.preventDefault();
+    const text = document.querySelector("textarea")?.value;
+    text !== undefined &&
+      sendMessage({
+        content: text,
+        template: template,
+        comida: food,
+      });
   }
 
   return (
@@ -26,6 +45,7 @@ export function SendMessage() {
                 `Olá, você tem um cupom disponível de R$10 na compra de `
               );
               food === "" && alert("Você deve selecionar uma comida!");
+              setTemplate("Cupom");
             }}
             value="R$10"
             type="cupom"
@@ -36,6 +56,7 @@ export function SendMessage() {
                 `Olá, você tem um cupom disponível de R$20 na compra de `
               );
               food === "" && alert("Você deve selecionar uma comida!");
+              setTemplate("Cupom");
             }}
             value="R$20"
             type="cupom"
@@ -46,6 +67,7 @@ export function SendMessage() {
                 "Restaurante novo na área! Venha já conferir em nosso app!"
               );
               setFood("");
+              setTemplate("Restaurante");
             }}
             type="restaurante"
           />
@@ -80,7 +102,13 @@ export function SendMessage() {
         </section>
 
         <h2>Mensagem</h2>
-        <textarea value={`${placeholder}${food}`} required />
+        <textarea
+          value={`${placeholder}${food}`}
+          onChange={(e) => {
+            e.target.value = `${placeholder}${food}`;
+          }}
+          required
+        />
       </Container>
       <Controllers>
         <button>

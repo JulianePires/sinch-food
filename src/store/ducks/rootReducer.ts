@@ -1,7 +1,11 @@
 import { combineReducers } from "redux";
 
-import contacts from "./contacts";
+import messages from "./messages";
+import sends from "./sends";
+import theme from "./theme";
 
 export default combineReducers({
-  contacts,
+  messages,
+  sends,
+  theme,
 });

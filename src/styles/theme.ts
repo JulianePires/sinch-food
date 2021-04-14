@@ -12,12 +12,14 @@ export const defaultTheme: DefaultTheme = {
       contrastText: "#272727",
       details: "#0A273D",
       hover: "#007171",
+      hoverBackground: "#c4c4c4",
     },
     secondary: {
       main: "#272727",
       contrastText: "#EEEEEE",
       details: "#EEEEEE",
       hover: "#FFBE3C",
+      hoverBackground: "#c4c4c4",
     },
   },
 };

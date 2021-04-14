@@ -5,8 +5,8 @@ export const Container = styled.header`
   height: 5rem;
   padding: 1rem 1.5rem;
 
-  background: var(--primaryDark);
-  color: var(--onDark);
+  background: var(--contrastText);
+  color: var(--main);
 
   font-size: 1.2rem;
 
@@ -14,11 +14,17 @@ export const Container = styled.header`
   justify-content: space-between;
   align-items: flex-end;
 
+  transition: all 0.2s;
+
   button {
     background: none;
     border: none;
-    color: var(--onDark);
+    color: var(--white);
     font-size: 1.2rem;
+
+    &:hover {
+      color: var(--hover);
+    }
   }
 
   span {

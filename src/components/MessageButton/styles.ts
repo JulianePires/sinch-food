@@ -6,17 +6,17 @@ export const Message = styled.button`
   margin: 0.5rem;
 
   background: transparent;
-  border: 1px solid var(--navyBlue);
+  border: 1px solid var(--details);
 
   font-size: 1rem;
 
   &:hover {
-    color: var(--blue);
-    border: 1px solid var(--blue);
+    color: var(--hover);
+    border: 1px solid var(--hover);
   }
 
   &:focus {
-    background: #c4c4c4;
+    background: var(--hoverBackground);
     font-weight: 600;
   }
 
