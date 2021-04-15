@@ -8,8 +8,7 @@ import { App } from "./App";
 
 import { makeServer } from "./services/server";
 import { Provider } from "react-redux";
-import { defaultTheme } from "./styles/theme";
-import { ThemeProvider } from "styled-components";
+import { ThemeProvider } from "./context/ThemeContext";
 
 if (process.env.NODE_ENV === "development") {
   makeServer({ environment: "development" });
@@ -17,7 +16,7 @@ if (process.env.NODE_ENV === "development") {
 
 ReactDOM.render(
   <Provider store={store}>
-    <ThemeProvider theme={defaultTheme}>
+    <ThemeProvider>
       <React.StrictMode>
         <App />
       </React.StrictMode>

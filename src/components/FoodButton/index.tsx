@@ -6,5 +6,5 @@ interface FoodButtonProps {
 }
 
 export function FoodButton({ name, onClick }: FoodButtonProps) {
-  return <Food onClick={onClick}>{name}</Food>;
+  return <Food className="food-button" onClick={onClick}>{name}</Food>;
 }

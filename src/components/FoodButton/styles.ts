@@ -7,6 +7,7 @@ export const Food = styled.button`
 
   background: transparent;
   border: 1px solid var(--details);
+  color: var(--details);
 
   font-size: 1rem;
 

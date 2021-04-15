@@ -10,6 +10,7 @@ import { ContactsTable, Container, Controllers } from "./styles";
 
 export function Contacts() {
   const [contacts, setContacts] = useState<Contact[]>([]);
+  const [selectAll, setSelectAll] = useState(false);
 
   useEffect(() => {
     api
@@ -29,6 +30,8 @@ export function Contacts() {
                   type="checkbox"
                   name="selectAll"
                   id="selectAll"
+                  onClick={() => setSelectAll(!selectAll)}
+                  checked={selectAll}
                 />
               </th>
               <th>Nome</th>
@@ -42,6 +45,7 @@ export function Contacts() {
                   id={contact.id}
                   name={contact.name}
                   telephone={contact.telephone}
+                  selected={selectAll}
                 />
               );
             })}

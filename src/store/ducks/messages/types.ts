@@ -11,10 +11,16 @@ export interface Message {
   comida: string;
 }
 
+export interface Send {
+  contact: Contact;
+  message: Message;
+}
+
 //State Types
 export interface MessageState {
   readonly selected: Contact[];
   readonly message: Message;
+  readonly sends: Send[];
 }
 
 //readonly torna imutável

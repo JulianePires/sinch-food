@@ -56,6 +56,7 @@ export const Controllers = styled.section`
 
     background: transparent;
     border: 1px solid var(--details);
+    color: var(--details);
 
     font-size: 1rem;
 

@@ -1,49 +1,44 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import {
   addContactsToList,
   removeContactFromList,
 } from "../../store/ducks/messages/actions";
-import { Contact } from "../../store/ducks/messages/types";
 import { Container } from "./styles";
 
-export function ContactList(props: Contact) {
+interface ContactListProps {
+  id: number;
+  name: string;
+  telephone: string;
+  selected: boolean;
+}
+
+export function ContactList(props: ContactListProps) {
   const dispatch = useDispatch();
   const [selected, setSelected] = useState(false);
 
+  useEffect(() => {
+    setSelected(props.selected)
+  },[props.selected])
+
   const handleAddContact = useCallback(() => {
-    const newContact = {
-      id: props.id,
-      name: props.name,
-      telephone: props.telephone,
-    };
-    dispatch(addContactsToList(newContact));
+    dispatch(addContactsToList(props.id, props.name, props.telephone));
   }, [dispatch, props.id, props.name, props.telephone]);
 
   const handleRemoveContact = useCallback(() => {
-    const newContact = {
-      id: props.id,
-      name: props.name,
-      telephone: props.telephone,
-    };
-    dispatch(removeContactFromList(newContact));
-  }, [dispatch, props.id, props.name, props.telephone]);
-
-  function handleSelectContact() {
-    if (selected === true) {
-      handleRemoveContact();
-      setSelected(false);
-    } else {
-      handleAddContact();
-      setSelected(true);
-    }
-  }
+    dispatch(removeContactFromList(props.id));
+  }, [dispatch, props.id]);
 
   return (
     <Container key={props.id}>
       <td>
         <input
-          onChange={handleSelectContact}
+          onChange={(e) =>
+            e.target.checked === true
+              ? handleAddContact()
+              : handleRemoveContact()
+          }
+          onClick={() => setSelected(!selected)}
           checked={selected}
           type="checkbox"
           name="selectUser"

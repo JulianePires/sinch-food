@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { FoodButton } from "../../components/FoodButton";
 import { MessageButton } from "../../components/MessageButton";
-import { setMessage } from "../../store/ducks/messages/actions";
+import { pushSend } from "../../store/ducks/messages/actions";
 import { Message } from "../../store/ducks/messages/types";
 import { Container, Controllers } from "./styles";
 
@@ -14,9 +14,9 @@ export function SendMessage() {
   const [placeholder, setPlaceholder] = useState("");
   const dispatch = useDispatch();
 
-  const sendMessage = useCallback(
+  const pushSendState = useCallback(
     (message: Message) => {
-      dispatch(setMessage(message));
+      dispatch(pushSend(message));
     },
     [dispatch]
   );
@@ -25,7 +25,7 @@ export function SendMessage() {
     event.preventDefault();
     const text = document.querySelector("textarea")?.value;
     text !== undefined &&
-      sendMessage({
+      pushSendState({
         content: text,
         template: template,
         comida: food,
@@ -77,25 +77,33 @@ export function SendMessage() {
         <section>
           <FoodButton
             onClick={() => {
-              setFood("Lanche");
+              placeholder !== "" && template === "Cupom"
+                ? setFood("Lanche")
+                : alert("Selecione um cupom");
             }}
             name="Lanche"
           />
           <FoodButton
             onClick={() => {
-              setFood("Pastel");
+              placeholder !== "" && template === "Cupom"
+                ? setFood("Pastel")
+                : alert("Selecione um cupom");
             }}
             name="Pastel"
           />
           <FoodButton
             onClick={() => {
-              setFood("Pizza");
+              placeholder !== "" && template === "Cupom"
+                ? setFood("Pizza")
+                : alert("Selecione um cupom");
             }}
             name="Pizza"
           />
           <FoodButton
             onClick={() => {
-              setFood("Sushi");
+              placeholder !== "" && template === "Cupom"
+                ? setFood("Sushi")
+                : alert("Selecione um cupom");
             }}
             name="Sushi"
           />
@@ -115,7 +123,7 @@ export function SendMessage() {
           <Link to="/">Voltar</Link>
         </button>
         <button type="submit" onClick={handleSetMessage}>
-          Enviar
+          <Link to="/relatories">Enviar</Link>
         </button>
       </Controllers>
     </>

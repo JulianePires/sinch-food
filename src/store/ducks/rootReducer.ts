@@ -1,11 +1,9 @@
 import { combineReducers } from "redux";
 
 import messages from "./messages";
-import sends from "./sends";
-import theme from "./theme";
+import checkboxes from "./checkboxes";
 
 export default combineReducers({
   messages,
-  sends,
-  theme,
+  checkboxes,
 });

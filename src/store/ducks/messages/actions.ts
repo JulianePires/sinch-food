@@ -1,26 +1,29 @@
-import { Contact, Message } from "./types";
+import { Message } from "./types";
 
-export function addContactsToList(contact: Contact) {
+
+export function addContactsToList(id: number, name: string, telephone: string) {
   return {
     type: "ADD_CONTACT_TO_LIST",
     payload: {
-      contact,
+      id,
+      name,
+      telephone,
     },
   };
 }
 
-export function removeContactFromList(contact: Contact) {
+export function removeContactFromList(id: number) {
   return {
     type: "REMOVE_CONTACT_FROM_LIST",
     payload: {
-      contact,
+      id,
     },
   };
 }
 
-export function setMessage(message: Message) {
+export function pushSend(message: Message) {
   return {
-    type: "SET_MESSAGE",
+    type: "PUSH_SEND",
     payload: {
       message,
     },

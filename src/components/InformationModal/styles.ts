@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
-export const Message = styled.button`
-  width: auto;
-  padding: 0.5rem;
+export const CloseButton = styled.button`
+  float: right;
+  width: 6rem;
+  padding: 0.5rem 0.5rem;
   margin: 0.5rem;
 
   background: transparent;
@@ -16,13 +17,15 @@ export const Message = styled.button`
     border: 1px solid var(--hover);
   }
 
-  &:focus {
+  &:focus-within {
     background: var(--hoverBackground);
     font-weight: 600;
   }
+`;
 
-  @media (min-width: 720px) {
-    width: auto;
-    padding: 0.5rem 1rem;
-  }
+export const Container = styled.section`
+  margin-top: 0.5rem;
+  display: grid;
+  grid-template-rows: repeat(1fr, 6);
+  row-gap: 0.5rem;
 `;

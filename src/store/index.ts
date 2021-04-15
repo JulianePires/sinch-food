@@ -1,26 +1,19 @@
-import { createStore, Store, applyMiddleware } from "redux";
+import { createStore, Store } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
-import createSagaMiddleware from "redux-saga";
 
 import { MessageState } from "./ducks/messages/types";
-import { SendState } from "./ducks/sends/types";
-import { ThemeState } from "./ducks/theme/types";
 
 import rootReducer from "./ducks/rootReducer";
+import { CheckboxState } from "./ducks/checkboxes/types";
 
 export interface ApplicationState {
+  checkboxes: CheckboxState;
   messages: MessageState;
-  sends: SendState;
-  theme: ThemeState;
 }
-
-const sagaMiddleware = createSagaMiddleware();
-
-const middlewares = [sagaMiddleware];
 
 const store: Store<ApplicationState> = createStore(
   rootReducer,
-  composeWithDevTools(applyMiddleware(...middlewares))
+  composeWithDevTools()
 );
 
 export default store;

@@ -1,16 +1,17 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
+
 :root{
   --sucess: #93FF6D;
   --error: #940909;
   --info: #11709E;
   --danger: #FF9F37;
-  --main: ${(props) => props.theme.palette.primary.main};
-  --contrastText: ${(props) => props.theme.palette.primary.contrastText};
-  --details: ${(props) => props.theme.palette.primary.details};
-  --hover: ${(props) => props.theme.palette.primary.hover};  
-  --hoverBackground: ${(props) => props.theme.palette.primary.hoverBackground}; 
+  --main: ${(props) => props.theme.main};
+  --contrastText: ${(props) => props.theme.contrastText};
+  --details: ${(props) => props.theme.details};
+  --hover: ${(props) => props.theme.hover};  
+  --hoverBackground: ${(props) => props.theme.hoverBackground}; 
 }
 
 * {
@@ -90,13 +91,14 @@ export const GlobalStyle = createGlobalStyle`
     position: absolute;
     right: 1.5rem;
     top: 1.5rem;
+    font-size: 1.5rem;
     border: 0;
     background: transparent;
 
     transition: filter 0.2s;
 
     &:hover {
-      filter: brightness(0.8);
+      color: var(--hover);
     }
   }
 
